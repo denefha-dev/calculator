@@ -18,8 +18,12 @@ const rl = readline.createInterface(
 // main function
 async function calculator() {
   try {
+    console.log('=============================')
+    console.log('=== CALCULATOR JAVASCRIPT ===')
+    console.log('=============================')
     const a = Number(await rl.question('Masukan angaka pertama: '))
     const b = Number(await rl.question('Masukan angka kedua: '))
+    console.log('-----------------------------')
     const c = await rl.question('Metode [+, -, /, *]: ')
 
     // error message
@@ -30,12 +34,20 @@ async function calculator() {
     // metode menghitung
     if (c === "+") {
       await tambah(a, b)
+      console.log('-----------------------------')
+
     } else if (c === "-") {
       await kurang(a, b)
+      console.log('-----------------------------')
+
     } else if (c === '/') {
       await bagi(a, b)
+      console.log('-----------------------------')
+
     } else if (c === "*") {
       await kali(a, b)
+      console.log('-----------------------------')
+
     } else {
       console.log('Metode perhitungan tidak valid!!')
     }
