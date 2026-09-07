@@ -1,6 +1,6 @@
 async function tambah(a, b) {
   return console.log(
-    `Penjumlahan ${a} + ${b} = ${a + b}`
+    `\nPenjumlahan ${a} + ${b} = ${a + b}`
   )
 }
 

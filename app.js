@@ -17,44 +17,55 @@ const rl = readline.createInterface(
 
 // main function
 async function calculator() {
-  try {
-    console.log('=============================')
-    console.log('=== CALCULATOR JAVASCRIPT ===')
-    console.log('=============================')
-    const a = Number(await rl.question('Masukan angaka pertama: '))
-    const b = Number(await rl.question('Masukan angka kedua: '))
-    console.log('-----------------------------')
-    const c = await rl.question('Metode [+, -, /, *]: ')
+  while (true) {
+    try {
+      console.log('\n=============================')
+      console.log('=== CALCULATOR JAVASCRIPT ===')
+      console.log('=============================')
+      const a = Number(await rl.question('Masukan angaka pertama: '))
+      const b = Number(await rl.question('Masukan angka kedua: '))
+      console.log('-----------------------------')
+      const c = await rl.question('Metode [+, -, /, *]: ')
 
-    // error message
-    if (Number.isNaN(a) || Number.isNaN(b)) {
-      throw new Error('hanya bisa memasukan angka!!')
+      // error message
+      if (Number.isNaN(a) || Number.isNaN(b)) {
+        throw new Error('hanya bisa memasukan angka!!')
+      }
+
+      // metode menghitung
+      if (c === "+") {
+        await tambah(a, b)
+        console.log('-----------------------------')
+
+      } else if (c === "-") {
+        await kurang(a, b)
+        console.log('-----------------------------')
+
+      } else if (c === '/') {
+        await bagi(a, b)
+        console.log('-----------------------------')
+
+      } else if (c === "*") {
+        await kali(a, b)
+        console.log('-----------------------------')
+
+      } else {
+        console.log('Metode perhitungan tidak valid!!')
+      }
+
+    } catch (error) {
+      console.log(`Error: ${error.message}`)
     }
 
-    // metode menghitung
-    if (c === "+") {
-      await tambah(a, b)
-      console.log('-----------------------------')
+    // looping calculator
+    const b = await rl.question('\nIngin menghitung lagi? [y/n]: ')
 
-    } else if (c === "-") {
-      await kurang(a, b)
-      console.log('-----------------------------')
-
-    } else if (c === '/') {
-      await bagi(a, b)
-      console.log('-----------------------------')
-
-    } else if (c === "*") {
-      await kali(a, b)
-      console.log('-----------------------------')
-
-    } else {
-      console.log('Metode perhitungan tidak valid!!')
+    // n ---> selesai
+    if (b === "n" || b === "N") {
+      break
     }
-
-  } catch (error) {
-    console.log(`Error: ${error.message}`)
   }
+
   // close program
   rl.close()
 }
