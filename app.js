@@ -5,6 +5,8 @@ const { stdin: input, stdout: output } = require('node:process')
 const { tambah } = require('./services/tambah.js')
 const { kurang } = require('./services/kurang.js')
 const { bagi } = require('./services/bagi.js')
+const { kali } = require('./services/kali.js')
+
 
 const rl = readline.createInterface(
   {
@@ -32,6 +34,10 @@ async function calculator() {
       await kurang(a, b)
     } else if (c === '/') {
       await bagi(a, b)
+    } else if (c === "*") {
+      await kali(a, b)
+    } else {
+      console.log('Metode perhitungan tidak valid!!')
     }
 
   } catch (error) {
