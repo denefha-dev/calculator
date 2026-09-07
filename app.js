@@ -4,6 +4,7 @@ const { stdin: input, stdout: output } = require('node:process')
 // local modules
 const { tambah } = require('./services/tambah.js')
 const { kurang } = require('./services/kurang.js')
+const { bagi } = require('./services/bagi.js')
 
 const rl = readline.createInterface(
   {
@@ -29,6 +30,8 @@ async function calculator() {
       await tambah(a, b)
     } else if (c === "-") {
       await kurang(a, b)
+    } else if (c === '/') {
+      await bagi(a, b)
     }
 
   } catch (error) {
