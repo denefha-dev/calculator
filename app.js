@@ -35,19 +35,15 @@ async function calculator() {
       // metode menghitung
       if (c === "+") {
         await tambah(a, b)
-        console.log('-----------------------------')
 
       } else if (c === "-") {
         await kurang(a, b)
-        console.log('-----------------------------')
 
       } else if (c === '/') {
         await bagi(a, b)
-        console.log('-----------------------------')
 
       } else if (c === "*") {
         await kali(a, b)
-        console.log('-----------------------------')
 
       } else {
         console.log('Metode perhitungan tidak valid!!')
